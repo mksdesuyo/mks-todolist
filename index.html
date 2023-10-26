@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MKS's Planner</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
-    <h1>Hello, MKS!</h1>
-</body>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="app__header">
+      <!-- Although HTML5 read it ok, h1 shouldn't be wrapped inside anchor, in which it's not a best practice. -->
+      <a href="/"><h1>DOIST (A Simple To-Do List Web App)</h1></a>
+    </header>
+    <main class="app__main">
+      <section class="input__section">
+        <h2>Plan Your Activities</h2>
+        <form id="inputForm">
+          <div>
+            <label for="inputTask">Task</label>
+            <input
+              type="text"
+              name="task"
+              id="inputTask"
+              placeholder="What's the job?"
+            />
+          </div>
+          <div>
+            <label for="inputDesc">Description</label>
+            <textarea
+              name="desc"
+              id="inputDesc"
+              rows="5"
+              placeholder="How's the detail?"
+            ></textarea>
+          </div>
+          <div>
+            <label for="inputDate">Date</label>
+            <input type="date" name="date" id="inputDate" />
+          </div>
+          <span>
+            <label for="inputIsDone">Has been done</label>
+            <input type="checkbox" name="isDone" id="isDone" />
+          </span>
+          <button type="submit" id="inputSubmit">Submit</button>
+        </form>
+      </section>
+    </main>
+  </body>
 </html>

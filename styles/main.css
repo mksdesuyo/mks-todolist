@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 /**
  * Modern CSS Reset Tweaks
  * ================================================== */
@@ -559,4 +560,142 @@ summary {
  * ========================================================================== */
 template {
   display: none;
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: "Roboto", sans-serif;
+}
+body h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+body h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+body h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.app__header {
+  display: flex;
+  justify-content: center;
+  background-color: #053b50;
+  padding: 1rem;
+}
+.app__header a {
+  text-decoration: none;
+}
+.app__header h1 {
+  background-color: #176b87;
+  color: #f7f7f7;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+.app__header h1:hover {
+  background-color: #269fbd;
+}
+
+.app__main {
+  display: grid;
+  place-items: center;
+}
+
+.input__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 62rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: solid 2px #053b50;
+  border-radius: 16px;
+}
+.input__section h2 {
+  text-align: center;
+}
+
+#inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#inputForm div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+#inputForm label {
+  font-size: 1.17em;
+}
+#inputForm input {
+  width: 56rem;
+  border: solid 1px #176b87;
+  border-radius: 8px;
+  padding: 0.17rem;
+  background-color: #f7f7f7;
+}
+#inputForm span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#inputForm span input {
+  width: auto;
+}
+#inputForm input:focus {
+  border: solid 2px #176b87;
+}
+#inputForm textarea {
+  border: solid 1px #176b87;
+  border-radius: 8px;
+  padding: 0.17rem;
+  background-color: #f7f7f7;
+}
+#inputForm textarea:focus {
+  border: solid 2px #176b87;
+}
+#inputForm button {
+  background-color: #176b87;
+  padding: 0.37rem;
+  border-radius: 8px;
+  color: #f7f7f7;
+  font-size: 1.17em;
+  transition: all 0.3s ease-in-out;
+}
+#inputForm button:hover {
+  background-color: #269fbd;
+}
+
+@media screen and (max-width: 1200px) {
+  #inputForm input {
+    width: 48rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #inputForm input {
+    width: 40rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  body h1 {
+    font-size: 1.5em;
+  }
+  #inputForm input {
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  #inputForm input {
+    width: 24rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  #inputForm input {
+    width: 14rem;
+  }
 }/*# sourceMappingURL=main.css.map */
