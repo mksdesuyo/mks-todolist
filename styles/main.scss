@@ -1,1 +1,265 @@
 @use '../node_modules/scss-reset/reset';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+$font-stack: 'Roboto', sans-serif;
+$color-dark: #053b50;
+$color-medium: #176b87;
+$color-normal: #269fbd;
+$color-light: #f7f7f7;
+$layout-breakpoint-xxl: 1200px;
+$layout-breakpoint-xl: 992px;
+$layout-breakpoint-lg: 768px;
+$layout-breakpoint-md: 576px;
+$layout-breakpoint-sm: 480px;
+$layout-breakpoint-xs: 320px;
+
+body {
+  background-color: $color-light;
+  font-family: $font-stack;
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+  }
+}
+.app__header {
+  display: flex;
+  justify-content: center;
+  background-color: $color-dark;
+  padding: 1rem;
+  a {
+    text-decoration: none;
+  }
+  h1 {
+    background-color: $color-medium;
+    color: $color-light;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+  }
+  h1:hover {
+    background-color: $color-normal;
+  }
+}
+.app__main {
+  display: grid;
+  place-items: center;
+}
+.input__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 62rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: solid 2px $color-dark;
+  border-radius: 16px;
+  h2 {
+    text-align: center;
+  }
+}
+#inputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  label {
+    font-size: 1.17em;
+  }
+  input {
+    width: 56rem;
+    border: solid 1px $color-medium;
+    border-radius: 8px;
+    padding: 0.17rem;
+    background-color: $color-light;
+  }
+  input:focus {
+    border: solid 2px $color-medium;
+  }
+  input[type='submit'] {
+    background-color: $color-medium;
+    color: $color-light;
+    font-size: 1.17em;
+    padding: 0.37rem;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  input[type='submit']:hover {
+    background-color: $color-normal;
+  }
+}
+.output__section {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  max-width: 62rem;
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+.task-undone {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px $color-dark;
+  border-radius: 16px;
+  width: 100%;
+  height: 50%;
+  padding: 1.5rem;
+  h2 {
+    text-align: center;
+  }
+}
+.task-done {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px $color-dark;
+  border-radius: 16px;
+  width: 100%;
+  height: 50%;
+  padding: 1.5rem;
+  h2 {
+    text-align: center;
+  }
+}
+.task-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 2px $color-dark;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+.task-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.task-item__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.check-button {
+  span {
+    color: $color-medium;
+    transition: all 0.3s ease-in-out;
+  }
+  span:hover {
+    color: $color-normal;
+  }
+}
+.undo-button {
+  span {
+    color: $color-medium;
+    transition: all 0.3s ease-in-out;
+  }
+  span:hover {
+    color: $color-normal;
+  }
+}
+.trash-button {
+  span {
+    color: $color-medium;
+    transition: all 0.3s ease-in-out;
+  }
+  span:hover {
+    color: $color-normal;
+  }
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #808080;
+}
+
+@media screen and (max-width: $layout-breakpoint-xxl) {
+  #inputForm {
+    input {
+      width: 48rem;
+    }
+  }
+  .output__section {
+    max-width: 54rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-xl) {
+  #inputForm {
+    input {
+      width: 40rem;
+    }
+  }
+  .output__section {
+    max-width: 46rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-lg) {
+  body {
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+  #inputForm {
+    input {
+      width: 30rem;
+    }
+  }
+  .output__section {
+    flex-direction: column;
+    max-width: 36rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-md) {
+  #inputForm {
+    input {
+      width: 20rem;
+    }
+  }
+  .output__section {
+    max-width: 26rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-sm) {
+  #inputForm {
+    input {
+      width: 16rem;
+    }
+  }
+  .output__section {
+    max-width: 22rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-xs) {
+  #inputForm {
+    input {
+      width: 14rem;
+    }
+  }
+  .output__section {
+    max-width: 20rem;
+  }
+}

@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MKS's Planner</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
-    <h1>Hello, MKS!</h1>
-</body>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="app__header">
+      <!-- Although HTML5 read it ok, h1 shouldn't be wrapped inside anchor, in which it's not a best practice. -->
+      <a href="/"><h1>DOIST (A Simple To-Do List Web App)</h1></a>
+    </header>
+    <main class="app__main">
+      <section class="input__section" id="add-task">
+        <h2>Plan Your Activities</h2>
+        <form id="inputForm">
+          <div>
+            <label for="inputTask">Task</label>
+            <input
+              type="text"
+              name="task"
+              id="inputTask"
+              placeholder="What's the job?"
+              required
+            />
+          </div>
+          <div>
+            <label for="inputDate">Date</label>
+            <input type="date" name="date" id="inputDate" required />
+          </div>
+          <input type="submit" value="Submit" name="Submit" id="inputSubmit" />
+        </form>
+      </section>
+
+      <div id="outputTest"></div>
+
+      <section class="output__section">
+        <div class="task-undone">
+          <h2>Task To Do</h2>
+          <div id="tasks">
+            <!-- The elements inside here comes from the javascript -->
+          </div>
+        </div>
+        <div class="task-done">
+          <h2>Task Completed</h2>
+          <div id="completed-tasks">
+            <!-- The elements inside here comes from the javascript -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/73346532eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/main.js" type="text/javascript"></script>
+  </body>
 </html>
