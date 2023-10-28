@@ -6,11 +6,12 @@ $color-dark: #053b50;
 $color-medium: #176b87;
 $color-normal: #269fbd;
 $color-light: #f7f7f7;
-$layout-breakpoint-xl: 1200px;
-$layout-breakpoint-lg: 992px;
-$layout-breakpoint-md: 768px;
-$layout-breakpoint-sm: 576px;
-$layout-breakpoint-xs: 480px;
+$layout-breakpoint-xxl: 1200px;
+$layout-breakpoint-xl: 992px;
+$layout-breakpoint-lg: 768px;
+$layout-breakpoint-md: 576px;
+$layout-breakpoint-sm: 480px;
+$layout-breakpoint-xs: 320px;
 
 body {
   background-color: $color-light;
@@ -115,7 +116,6 @@ body {
   border-radius: 16px;
   width: 100%;
   height: 50%;
-  gap: 1rem;
   padding: 1.5rem;
   h2 {
     text-align: center;
@@ -128,7 +128,6 @@ body {
   border-radius: 16px;
   width: 100%;
   height: 50%;
-  gap: 1rem;
   padding: 1.5rem;
   h2 {
     text-align: center;
@@ -141,6 +140,7 @@ body {
   align-items: center;
   border: solid 2px $color-dark;
   gap: 0.5rem;
+  margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 8px;
 }
@@ -155,6 +155,15 @@ body {
   gap: 0.5rem;
 }
 .check-button {
+  span {
+    color: $color-medium;
+    transition: all 0.3s ease-in-out;
+  }
+  span:hover {
+    color: $color-normal;
+  }
+}
+.undo-button {
   span {
     color: $color-medium;
     transition: all 0.3s ease-in-out;
@@ -183,29 +192,29 @@ body {
   background-color: #808080;
 }
 
-@media screen and (max-width: $layout-breakpoint-xl) {
+@media screen and (max-width: $layout-breakpoint-xxl) {
   #inputForm {
     input {
       width: 48rem;
     }
   }
   .output__section {
-    max-width: 60rem;
+    max-width: 54rem;
   }
 }
 
-@media screen and (max-width: $layout-breakpoint-lg) {
+@media screen and (max-width: $layout-breakpoint-xl) {
   #inputForm {
     input {
       width: 40rem;
     }
   }
   .output__section {
-    max-width: 58rem;
+    max-width: 46rem;
   }
 }
 
-@media screen and (max-width: $layout-breakpoint-md) {
+@media screen and (max-width: $layout-breakpoint-lg) {
   body {
     h1 {
       font-size: 1.5em;
@@ -218,18 +227,29 @@ body {
   }
   .output__section {
     flex-direction: column;
-    max-width: 56rem;
+    max-width: 36rem;
+  }
+}
+
+@media screen and (max-width: $layout-breakpoint-md) {
+  #inputForm {
+    input {
+      width: 20rem;
+    }
+  }
+  .output__section {
+    max-width: 26rem;
   }
 }
 
 @media screen and (max-width: $layout-breakpoint-sm) {
   #inputForm {
     input {
-      width: 24rem;
+      width: 16rem;
     }
-    .output__section {
-      max-width: 56rem;
-    }
+  }
+  .output__section {
+    max-width: 22rem;
   }
 }
 
@@ -240,6 +260,6 @@ body {
     }
   }
   .output__section {
-    max-width: 54rem;
+    max-width: 20rem;
   }
 }

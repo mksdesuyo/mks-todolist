@@ -12,7 +12,7 @@
       <a href="/"><h1>DOIST (A Simple To-Do List Web App)</h1></a>
     </header>
     <main class="app__main">
-      <section class="input__section">
+      <section class="input__section" id="add-task">
         <h2>Plan Your Activities</h2>
         <form id="inputForm">
           <div>
@@ -22,11 +22,12 @@
               name="task"
               id="inputTask"
               placeholder="What's the job?"
+              required
             />
           </div>
           <div>
             <label for="inputDate">Date</label>
-            <input type="date" name="date" id="inputDate" />
+            <input type="date" name="date" id="inputDate" required />
           </div>
           <input type="submit" value="Submit" name="Submit" id="inputSubmit" />
         </form>
@@ -37,37 +38,15 @@
       <section class="output__section">
         <div class="task-undone">
           <h2>Task To Do</h2>
-          <!-- <div class="task-item">
-            <div class="task-item__text">
-              <h3>Task name</h3>
-              <p>Jan, 22 2001</p>
-            </div>
-            <div class="task-item__actions">
-              <button class="check-button">
-                <span class="fa-solid fa-circle-check fa-lg"></span>
-              </button>
-              <button class="trash-button">
-                <span class="fa-solid fa-trash-can fa-lg"></span>
-              </button>
-            </div>
-          </div> -->
+          <div id="tasks">
+            <!-- The elements inside here comes from the javascript -->
+          </div>
         </div>
         <div class="task-done">
           <h2>Task Completed</h2>
-          <!-- <div class="task-item">
-            <div class="task-item__text">
-              <h3>Task name</h3>
-              <p>Jan, 22 2001</p>
-            </div>
-            <div class="task-item__actions">
-              <button class="check-button">
-                <span class="fa-solid fa-circle-check fa-lg"></span>
-              </button>
-              <button class="trash-button">
-                <span class="fa-solid fa-trash-can fa-lg"></span>
-              </button>
-            </div>
-          </div> -->
+          <div id="completed-tasks">
+            <!-- The elements inside here comes from the javascript -->
+          </div>
         </div>
       </section>
     </main>
