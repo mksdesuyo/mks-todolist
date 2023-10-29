@@ -1,5 +1,7 @@
 const tasks = [];
 const RENDER_EVENT = 'render-task';
+const SAVED_EVENT = 'saved-task';
+const STORAGE_KEY = 'DOIST';
 
 const generateId = () => {
   return +new Date();
@@ -23,6 +25,7 @@ const addTask = () => {
   tasks.push(taskObject);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 };
 
 const makeTask = (taskObject) => {
@@ -105,6 +108,7 @@ const addTaskToCompleted = (taskId) => {
 
   taskTarget.isCompleted = true;
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 };
 
 const findTask = (taskId) => {
@@ -124,6 +128,7 @@ const removeTaskFromCompleted = (taskId) => {
 
   tasks.splice(taskTarget, 1);
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 };
 
 const findTaskIndex = (taskId) => {
@@ -143,9 +148,13 @@ const undoTaskFromCompleted = (taskId) => {
 
   taskTarget.isCompleted = false;
   document.dispatchEvent(new Event(RENDER_EVENT));
+  saveData();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  let today = new Date().toISOString().split('T')[0];
+  document.getElementsByName('date')[0].setAttribute('min', today);
+
   const submitTask = document.getElementById('inputForm');
 
   submitTask.addEventListener('submit', (event) => {
@@ -153,6 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     addTask();
     submitTask.reset();
   });
+
+  if (isStorageExist()) {
+    loadDataFromStorage();
+  }
 });
 
 document.addEventListener(RENDER_EVENT, () => {
@@ -171,3 +184,37 @@ document.addEventListener(RENDER_EVENT, () => {
     }
   }
 });
+
+const saveData = () => {
+  if (isStorageExist()) {
+    const parsed = JSON.stringify(tasks);
+    localStorage.setItem(STORAGE_KEY, parsed);
+    document.dispatchEvent(new Event(SAVED_EVENT));
+  }
+};
+
+const isStorageExist = () => {
+  if (typeof Storage === undefined) {
+    alert('Your browser does not support local storage');
+    return false;
+  }
+
+  return true;
+};
+
+document.addEventListener(SAVED_EVENT, () => {
+  console.log(localStorage.getItem(STORAGE_KEY));
+});
+
+const loadDataFromStorage = () => {
+  const serializedData = localStorage.getItem(STORAGE_KEY);
+  let data = JSON.parse(serializedData);
+
+  if (data !== null) {
+    for (const task of data) {
+      tasks.push(task);
+    }
+  }
+
+  document.dispatchEvent(new Event(RENDER_EVENT));
+};
