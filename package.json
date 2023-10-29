@@ -1,4 +1,13 @@
 {
+  "name": "mks-todolist",
+  "description": "MKS Todolist App... On Progress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rizqi MKS",
+  "license": "ISC",
   "devDependencies": {
     "scss-reset": "^1.4.2"
   }
